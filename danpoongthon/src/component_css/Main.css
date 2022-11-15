@@ -1,0 +1,30 @@
+.componentDiv{
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #F5F5F5;
+    min-height:100vh;
+}
+.holemenuDiv{
+    display: flex;
+    background-color: aliceblue;
+}
+.menuDiv{
+    display: flex;
+}
+
+.menu{
+    font-weight: bold;
+}
+
+.bar{
+    font-weight: bold; 
+}
+
+.bookDiv{
+    height:100vh;
+    background : url('../../public/mainBookimg.png') no-repeat center;
+    background-size:contain;
+}
+
+.title{
+    background-color: aliceblue;
+}
