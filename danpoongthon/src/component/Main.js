@@ -74,7 +74,9 @@ function Main(){
                     </div>
 
                     <div className='menuDiv'>
-                        <button className='writebtn'><img src='./writeBtn.png'></img></button>
+                        <Link to={"/Write"}>
+                            <img src='./writeBtn.png'></img>
+                        </Link>
                     </div>
 
                     <div className='menuDiv'>
