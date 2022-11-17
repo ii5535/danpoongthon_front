@@ -15,6 +15,33 @@ const Data=[
     }
 ]
 
+const storyData=[
+    {
+        id: 2,
+        nickname: "멋셰익스피어",
+        bookcontents: '김멋사가 길을 나섰다. 가는 길에 늑대를 마추쳤는데, 빼빼로 하나 주면 안잡아먹지를 외쳤다.',
+        book_name: 1
+    },
+    {
+        id: 3,
+        nickname: "멋셰익스피어",
+        bookcontents: "김멋사가 길을 나섰다. 가는 길에 늑대를 마추쳤는데, 빼빼로 하나 주면 안잡아먹지를 외쳤다.",
+        book_name: 1
+    },
+    {
+        id: 3,
+        nickname: "멋셰익스피어",
+        bookcontents: "김멋사가 길을 나섰다. 가는 길에 늑대를 마추쳤는데, 빼빼로 하나 주면 안잡아먹지를 외쳤다.",
+        book_name: 1
+    },
+    {
+        id: 3,
+        nickname: "멋셰익스피어",
+        bookcontents: "김멋사가 길을 나섰다. 가는 길에 늑대를 마추쳤는데, 빼빼로 하나 주면 안잡아먹지를 외쳤다.",
+        book_name: 1
+    },
+]
+
 function Main(){
     
     return(
@@ -31,51 +58,49 @@ function Main(){
                         <div className='bar'>
                             |
                         </div>
-                        <div>
+                        <div className='dataname'>
                             {Data[0].userName}
                         </div>
-                    </div>
-
-                    <div className='menuDiv'>
+                    
                         <div className='menu'>
                             장르
                         </div>
                         <div className='bar'>
                             |
                         </div>
-                        <div>
+                        <div className='data'>
                             {Data[0].genre}
                         </div>
                     </div>
 
                     <div className='menuDiv'>
+                        <button className='writebtn'><img src='./writeBtn.png'></img></button>
+                    </div>
+
+                    <div className='menuDiv'>
                         {Data[0].keyword.map(i=>(
-                            <div>#{i}</div>
+                            <div className='keyword'>#{i}</div>
                         ))}
                     </div>
 
                 </div>
 
                 <div className='bookDiv'>
-                    <div className='title'>
-                        제목
+                    <div className='contentDiv'>
+                        <div className='title'>
+                            제목
+                        </div>
+
+                        <div className='storys'>
+                            {storyData.map(i=>(
+                                <div className='story'>
+                                {i.bookcontents} - {i.nickname}
+                                </div>
+                            ))}                       
+                        </div>                      
+
                     </div>
-                    {/* <div>
-                        제목
-                    </div>
-                    <div>
-                        제목
-                    </div>
-                    <div>
-                        제목
-                    </div>
-                    <div className='title'>
-                        jgjgjgjg
-                    </div>
-                     */}
                 </div>
-
-
             </div>
         </>
     )
