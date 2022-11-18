@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './component/Home';
 import Main from './component/Main';
 import Write from './component/Write';
+import Create from './component/Create';
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
         <Routes>
           {/* 시작페이지 */}
           <Route exact path="/" element={<Home />}/>
+          
+          {/* 책 생성 페이지 */}
+          <Route exact path="create" element={<Create />}/>
 
           {/* 메인페이지 */}
           <Route exact path="main" element={<Main />}/>

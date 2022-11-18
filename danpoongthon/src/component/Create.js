@@ -1,0 +1,96 @@
+import {useLocation, Link} from 'react-router-dom';
+import React, { useRef } from "react";
+import Header from './Header'
+import '../component_css/Main.css';
+import '../component_css/Create.css'
+import { useEffect, useState } from 'react';
+
+function Create(){
+    const [title,setTitle]=useState('');
+    const [genre,setGenre]=useState('');
+    const [key1,setKey1]=useState('');
+    const [key2,setKey2]=useState('');
+    const [key3,setKey3]=useState('');
+
+    function postContents(e){
+        console.log(title,genre,key1,key2,key3);
+
+        // 서버에게 post
+        // axios.post(`/booklist/${booklist-id}`,{
+        //     user_name: (''),
+        //     book_name: (title),
+        //     genre: (genre),
+        //     keyword1: (key1),
+        //     keyword2: (key2),
+        //     keyword3: (key3),
+        // })
+        // .then((res)=>{
+        //     console.log(res);
+        // })
+    }
+
+
+    return(
+        <>
+            <Header></Header>
+
+            <div className='componentDiv'>
+                <div className='createbookDiv'>
+                    <div className='createDiv'>
+                        <div className='createtitle'>
+                            | 제목
+                        </div>
+                        <div>
+                            <input 
+                            type='text'
+                            value={title}
+                            onChange={e=> setTitle(e.target.value)}
+                            className='createinput'></input>
+                        </div>
+
+                        <div className='createtitle'>
+                            | 장르
+                        </div>
+                        <div>
+                            <input 
+                            type='text'
+                            value={genre}
+                            onChange={e=> setGenre(e.target.value)}
+                            className='createinput'></input>
+                        </div>
+
+                        <div className='createtitle'>
+                            | 키워드
+                        </div>
+                        <div>
+                            <input 
+                            type='text'
+                            value={key1}
+                            onChange={e=> setKey1(e.target.value)}
+                            className='inputkey'></input>
+
+                            <input 
+                            type='text'
+                            value={key2}
+                            onChange={e=> setKey2(e.target.value)}
+                            className='inputkey'></input>
+
+                            <input 
+                            type='text'
+                            value={key3}
+                            onChange={e=> setKey3(e.target.value)}
+                            className='inputkey'></input>
+                        </div>
+                        
+                        <Link to={"/Main"}>
+                            <img onClick={postContents} className='createbtn' src='./btn_post.png'></img>
+                        </Link>
+
+                    </div>                    
+                </div>
+            </div>
+        </>
+    )
+}
+
+export default Create;

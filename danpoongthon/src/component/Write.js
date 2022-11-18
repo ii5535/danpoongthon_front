@@ -1,18 +1,35 @@
 import {useLocation, Link} from 'react-router-dom';
+import React,{useState, useCallback, useRef, useEffect} from 'react';
 import Header from './Header'
 import '../component_css/Write.css';
 import '../component_css/Main.css';
 
-// dummy data
-const Data=[
-    {
-        userName: '김멋사',
-        genre : '판타지',
-        keyword : ['keyword1','keyword2','keyword3']
-    }
-]
 
 function Write(){
+    const user_name=useLocation().state.user_name;
+    const genre=useLocation().state.genre;
+    const key_word1=useLocation().state.key_word1;
+    const key_word2=useLocation().state.key_word2;
+    const key_word3=useLocation().state.key_word3;
+
+    const [nickname,setNickname]=useState('');
+    const [contents,setContents]=useState('');
+
+    // console.log(contents);
+
+    function postContents(e){
+        console.log(contents,nickname);
+
+        // 서버에게 post
+        // axios.post(`/bookdetail`,{
+        //     nick_name: (nickname),
+        //     bookcontents: (contents),
+        // })
+        // .then((res)=>{
+        //     console.log(res);
+        // })
+    }
+
     return(
         <>
             <Header></Header>
@@ -26,7 +43,7 @@ function Write(){
                                 |
                             </div>
                             <div className='dataname'>
-                                {Data[0].userName}
+                                {user_name}
                             </div>
                         
                             <div className='menu'>
@@ -36,14 +53,17 @@ function Write(){
                                 |
                             </div>
                             <div className='data'>
-                                {Data[0].genre}
+                                {genre}
                             </div>
                         </div>
                     
                         <div className='menuDiv'>
-                            {Data[0].keyword.map(i=>(
+                            <div className='keyword'>#{key_word1}</div>
+                            <div className='keyword'>#{key_word2}</div>
+                            <div className='keyword'>#{key_word3}</div>
+                            {/* {Data[0].keyword.map(i=>(
                                 <div className='keyword'>#{i}</div>
-                            ))}
+                            ))} */}
                         </div>
                 </div>
 
@@ -55,19 +75,26 @@ function Write(){
                         <div className='writer'>
                             |
                         </div>
-                        <input type='text' className='inputWriter'></input>        
+                        <input 
+                        type='text' 
+                        value={nickname}
+                        onChange={e=> setNickname(e.target.value)}
+                        className='inputWriter'></input>        
                     </div>
 
                     <div className='inputTextDiv'>
-                        <textarea cols="10" rows="2" placeholder="내용을 입력해주세요." className='inputText'></textarea>                  
+                        <textarea cols="10" rows="2" placeholder="내용을 입력해주세요."
+                        value={contents}
+                        onChange={e=> setContents(e.target.value)}
+                        className='inputText'></textarea>                  
 
                     </div>
 
-                    <div>
-                        <img src='./doneBtn.png'></img>
-                    </div>
-
-                    
+                    <div className='postBtn'>
+                        <Link to={"/Main"}>
+                            <img onClick={postContents} src='./doneBtn.png'></img>
+                        </Link>
+                    </div>                   
                     
 
                 </div>
