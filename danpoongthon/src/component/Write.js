@@ -31,7 +31,7 @@ function Write(){
     }
 
     return(
-        <>
+        <div className='hole2'>
             <Header></Header>
             <div className='componentDiv'>
                 <div className='holemenuDiv'>
@@ -100,7 +100,7 @@ function Write(){
                 </div>
 
             </div>
-        </>
+        </div>
     )
 }
 

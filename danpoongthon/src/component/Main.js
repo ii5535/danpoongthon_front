@@ -101,7 +101,7 @@ function Main(){
     }
     
     return(
-        <>
+        <div className='hole'>
             <Header></Header>
 
             <div className='componentDiv'>
@@ -172,7 +172,7 @@ function Main(){
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

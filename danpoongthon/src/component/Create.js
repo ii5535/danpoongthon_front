@@ -31,7 +31,7 @@ function Create(){
 
 
     return(
-        <>
+        <div className='hole3'>
             <Header></Header>
 
             <div className='componentDiv'>
@@ -89,7 +89,7 @@ function Create(){
                     </div>                    
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

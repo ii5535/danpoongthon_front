@@ -1,23 +1,28 @@
+.hole{
+    background : url('../../public/BG_main.png') no-repeat center;
+    background-color: #F5F5F5;
+    height:100vh;
+    background-size:cover;
+    overflow-x:hidden;
+    overflow-y:hidden;
+}
 .componentDiv{
     font-family: 'Noto Sans KR', sans-serif;
-    /* background : url('../../public/BG_main.png') no-repeat center; */
-    background-color: #F5F5F5;
-    min-height:95vh;
-    overflow-x:hidden;
 }
+
 .holemenuDiv{    
     color:#333333;
     display: flex;
     /* background-color: rgba(17, 17, 91, 0.249); */
     margin: 0px auto;
-    padding-top:103px;
+    padding-top:80px;
     width: 1312px;
     text-align: center;
     justify-content: space-between; 
 }
 .menuDiv{
     display: flex;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     justify-content: space-between; 
 }
 
@@ -63,10 +68,10 @@
 }
 
 .bookDiv{
-    height:100vh;
+    /* height:100vh; */
     width:1900px;
-    background : url('../../public/BG_main.png') no-repeat center;
-    background-size:cover;
+    /* background : url('../../public/BG_main.png') no-repeat center; */
+    /* background-size:cover; */
 }
 
 .contentDiv{
@@ -82,7 +87,7 @@
     border-bottom:2px solid #616161;
     width:333px;
     padding-top:120px;
-    margin-left:180px;   
+    margin-left:200px;   
 }
 
 .storys{
@@ -92,7 +97,7 @@
     height:700px;
     padding:10px;
     padding-top:30px;
-    margin-left:80px; 
+    margin-left:110px; 
     
 }
 
