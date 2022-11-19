@@ -1,5 +1,6 @@
 import {useLocation, Link} from 'react-router-dom';
 import React, { useRef } from "react";
+import axios from 'axios';
 import Header from './Header'
 import '../component_css/Main.css';
 import '../component_css/Create.css'
@@ -33,6 +34,10 @@ function Create(){
     return(
         <div className='hole3'>
             <Header></Header>
+
+            <div className='logodiv'>
+                <img className='logo' src='./logo.png'></img>
+            </div>  
 
             <div className='componentDiv'>
                 <div className='createbookDiv'>

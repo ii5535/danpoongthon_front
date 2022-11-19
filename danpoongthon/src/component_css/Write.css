@@ -60,7 +60,7 @@
     background-image:
     linear-gradient(to right, white 10px, transparent 10px),
     linear-gradient(to left, white 10px, transparent 10px),
-    repeating-linear-gradient(white, white 35px, #616161 35px, #616161 38px, white 36px);
+    repeating-linear-gradient(white, white 35px, #3F3032 35px, #3F3032 38px, white 36px);
     line-height:33px;
     padding: 5px 10px;
 

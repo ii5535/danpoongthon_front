@@ -1,48 +1,11 @@
 import {useLocation, Link} from 'react-router-dom';
-import React, { useRef } from "react";
+import React, { useRef,useState } from "react";
+import axios from 'axios';
 import Header from './Header'
 import '../component_css/Main.css';
 import { useEffect } from 'react';
 
 // dummy data
-// const Data=[
-//     {
-//         userName: '김멋사',
-//         genre : '판타지',
-//         keyword : ['keyword1','keyword2','keyword3']
-//     },
-//     {
-//         writer: '멋셰익스피어',
-//         text : '김멋사가 길을 나섰다. 가는 길에 늑대를 마추쳤는데, 빼빼로 하나 주면 안잡아먹지를 외쳤다.'
-//     }
-// ]
-
-// const storyData=[
-//     {
-//         id: 2,
-//         nickname: "멋셰익스피어",
-//         bookcontents: '김멋사가 길을 나섰다. 가는 길에 늑대를 마추쳤는데, 빼빼로 하나 주면 안잡아먹지를 외쳤다.',
-//         book_name: 1
-//     },
-//     {
-//         id: 3,
-//         nickname: "멋셰익스피어",
-//         bookcontents: "김멋사가 길을 나섰다. 가는 길에 늑대를 마추쳤는데, 빼빼로 하나 주면 안잡아먹지를 외쳤다.",
-//         book_name: 1
-//     },
-//     {
-//         id: 3,
-//         nickname: "멋셰익스피어",
-//         bookcontents: "김멋사가 길을 나섰다. 가는 길에 늑대를 마추쳤는데, 빼빼로 하나 주면 안잡아먹지를 외쳤다.",
-//         book_name: 1
-//     },
-//     {
-//         id: 3,
-//         nickname: "멋셰익스피어",
-//         bookcontents: "김멋사가 길을 나섰다. 가는 길에 늑대를 마추쳤는데, 빼빼로 하나 주면 안잡아먹지를 외쳤다.",
-//         book_name: 1
-//     },
-// ]
 
 const ddata={
     id: 1,
@@ -71,9 +34,9 @@ const ddata={
 
 
 function Main(){
-    // const [data,setData]=useState(ddata)
+    const [data,setData]=useState(ddata)
 
-    // // 서버에게서 데이터 get
+    // 서버에게서 데이터 get
     // useEffect(()=>{
     //     axios.get(`/booklist/${booklist-id}`)
     //     .then((response)=>{
@@ -103,10 +66,15 @@ function Main(){
     return(
         <div className='hole'>
             <Header></Header>
+            
+            <div className='logodiv'>
+                <img className='logo' src='./logo.png'></img>
+            </div>           
+            
 
             <div className='componentDiv'>
                 <div className='holemenuDiv'>
-
+                    
                     <div className='menuDiv'>
                         <div className='menu'>
                             주인공 
@@ -137,6 +105,14 @@ function Main(){
                             key_word2: (ddata.key_word2),
                             key_word3: (ddata.key_word3),
                         } }>
+
+                        {/* <Link to="/Write" state={{
+                            user_name: (data.user_name),
+                            genre : (data.genre),
+                            key_word1: (data.key_word1),
+                            key_word2: (data.key_word2),
+                            key_word3: (data.key_word3),
+                        } }> */}
                             <img src='./writeBtn.png'></img>
                         </Link>
                     </div>
@@ -145,6 +121,11 @@ function Main(){
                         <div className='keyword'>#{ddata.key_word1}</div>
                         <div className='keyword'>#{ddata.key_word2}</div>
                         <div className='keyword'>#{ddata.key_word3}</div>
+
+                        {/* <div className='keyword'>#{data.key_word1}</div>
+                        <div className='keyword'>#{data.key_word2}</div>
+                        <div className='keyword'>#{data.key_word3}</div> */}
+
                         <img onClick={copyTextUrl} className='share' src='./share.png'></img>
                         {/* {Data[0].keyword.map(i=>(
                             <div className='keyword'>#{i}</div>
@@ -159,10 +140,12 @@ function Main(){
                     <div className='contentDiv'>
                         <div className='title'>
                             {ddata.book_name}
+                            {/* {data.book_name} */}
                         </div>
 
                         <div className='storys'>
                             {ddata.bookdetail.map(i=>(
+                            // {data.bookdetail.map(i=>(
                                 <div className='story'>
                                 {i.bookcontents} - {i.nickname}
                                 </div>

@@ -1,6 +1,7 @@
 import {useLocation, Link} from 'react-router-dom';
 import React,{useState, useCallback, useRef, useEffect} from 'react';
 import Header from './Header'
+import axios from 'axios';
 import '../component_css/Write.css';
 import '../component_css/Main.css';
 
@@ -33,6 +34,11 @@ function Write(){
     return(
         <div className='hole2'>
             <Header></Header>
+
+            <div className='logodiv'>
+                <img className='logo' src='./logo.png'></img>
+            </div> 
+
             <div className='componentDiv'>
                 <div className='holemenuDiv'>
                         <div className='menuDiv'>
