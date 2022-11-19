@@ -1,0 +1,62 @@
+.startpage-body{
+    position: relative;
+    width: 1920px;
+    height: 1080px;
+    background: #F4F4F4;
+    /* 요소의 높낮이 우선순위 속성 */
+    z-index: -3;
+  }
+  
+  
+  .startpage-textbox{
+    position: absolute;
+    width: 450px;
+    /*넓이 변경 본래값 : width: 365px;*/
+    height: 82px;
+    
+    left: 735px;
+    top: 138px;
+  
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 27px;
+    line-height: 150.2%;
+    /* or 41px */
+  
+    text-align: center;
+    color: #333333;
+  }
+  
+  .backgraound-img{
+    position: absolute;
+    width: 100%;
+    height: 573px;
+    bottom :0%;
+    z-index: -2;
+  }
+  
+  .hoverbooks{
+    position: relative;
+    left: 710px;
+    top :542px;
+  
+    width: 515px;
+  
+    display: flex;
+    flex-wrap: nowrap;
+    z-index: -1;
+  }
+  
+  .loginbook{
+    position: absolute; 
+    right: 262px;
+    z-index: -1;
+  }
+  
+  
+  .registerbook{
+    position: absolute;
+    left:222px;
+    z-index: -2;
+  }
