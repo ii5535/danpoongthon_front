@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import {useLocation, Link} from 'react-router-dom';
 import '../component_css/Login.css';
+import '../component_css/Join.css';
+import Header from './Header'
+
+import axios from 'axios';
 
 const User = {
     email: '김멋사@example.com',
@@ -9,6 +14,7 @@ const User = {
 const Loginpage =() =>{
 
  // const [매개변수, 함수이름] 초기값은 string형
+    const [id, setId] = useState('');
     const [email, setEmail] = useState('');
     const [pw, setPw] = useState('');
 
@@ -66,13 +72,73 @@ const Loginpage =() =>{
     }, [emailValid, pwValid]);
 
 
+    const [isLogin,setLogin] = useState('');
+
+    //server
+    function login(){
+
+        axios.post('/auth/token',{
+            user_id:(id),
+            password:(pw)
+        })
+        .then((res)=>{
+            console.log(res);
+            setLogin(res.data.data);
+            console.log(isLogin);
+        })
+    }
+    
+
+
     return(
         <div className ="Loginpage">
-            <header>
+            <Header></Header>
 
-            </header>
+            <div className='logodiv'>
+                <img className='logo' src='./logo.png'></img>
+            </div>
 
-            <body className = "body">
+            <img className='titleWrap1' src='./LOGIN.png'></img>
+
+            <div className="contentWrap1">  
+            
+                <div className="inputTitle">아이디</div>
+                    <div className="inputWrap">
+                        <input 
+                        placeholder="likelion"
+                        value={id}
+                        onChange={e=> setId(e.target.value)}
+                        className="input"/>
+                    </div>
+
+                <div className="inputTitle">비밀번호</div>
+
+                <div className="inputWrap">
+                    <input 
+                    type='password'
+                    // value={password}
+                    onChange={handlePassword}
+                    // onChange={e=> setPassword(e.target.value)}
+                    className="input"/>    
+                </div>
+
+                {/* <div className="errorMessageWrap">
+                            {!pwValid && pw.length > 0 && (
+                                    <div>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</div>
+                                )
+                            }
+                </div> */}                
+
+                <Link to = '/Login' state={{
+                    isLogin:(isLogin)
+                }}>
+                    <img onClick={login} src='./loginBtn.png'></img>
+                </Link>
+            </div> 
+
+
+
+            {/* <body className = "body">
                 <div className="Loginbox">
                     <div className="titleWrap">
                     Login    
@@ -80,25 +146,20 @@ const Loginpage =() =>{
 
                     <div className="contentWrap">
                         <div className="inputTitle">아이디</div>
-                        <div className="inputWrap">
+                        <div className="inputWrap1">
                             <input 
-                                //입력되는 변수의 형을 정해줘야한다.
+                        
                                 type = 'text'
                                 className="input"
                                 placeholder="김멋사@gmail.com"
                                 value={email}
                                 onChange={handleEmail}
-                                /*onChange={(e)=>setEmail(e.target.value)}
-                                값이 변경될때마다 지정한 함수를 호출
-                                'setEmail'이라는 함수 호출
-                                setEmail이라는 함수는 사용자가 입력받는 값을 계속 인수로 받는다.
-                                인수를 받고 함수의 결과(return)값을 value에 넣어준다.
-                                onChange이벤트가 없으면 값을 변환해서 넣어줄 수 없다. */
+                               
                                 />
                         </div>
 
                         <div className="errorMessageWrap">
-                            {//이메일이 입력 되거나 아예 입력 되지 않을때(이메일 길이가 0일때)만 에러메세지 출력.
+                            {
                                 !emailValid && email.length > 0 &&(
                                 <div>올바른 이메일 형식의 아이디를 입력해주세요.</div>
                                 )
@@ -134,14 +195,14 @@ const Loginpage =() =>{
                     </div>
 
                 </div>
-            </body>
+            </body> */}
 
 
-            <div className = "imgbox">
+            {/* <div className = "imgbox">
                 <img className = "Loginpagebg"
                 src="./BG_login.png" alt="로그인 배경">
                 </img>
-            </div>
+            </div> */}
         </div>
     );
 

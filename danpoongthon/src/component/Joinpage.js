@@ -1,70 +1,75 @@
-//import React, { useState } from 'react';
+import React, { useState } from 'react';
+import {useLocation, Link} from 'react-router-dom';
 import '../component_css/Join.css';
+import '../component_css/Main.css';
+import Header from './Header'
 
-const Joinpage =() =>{
+import axios from 'axios';
+
+const Joinpage = () =>{
+    const [username,setUsername]=useState('');
+    const [userid,setUserid]=useState('');
+    const [password,setPassword]=useState('');
+
+    function Join(){
+        console.log(username,userid,password);
+
+        //서버에게 post
+        axios.post('/auth',{
+            user_name: (username),
+            user_id: (userid),
+            password: (password)
+        })
+        .then((res=>{
+            console.log(res);
+        }))
+    }
+
     return(
-        <div className ="Loginpage">
-            <header>
+        <div className ='joinpage'>
+            <Header></Header>
 
-            </header>
+            <div className='logodiv'>
+                <img className='logo' src='./logo.png'></img>
+            </div>    
 
-            <body className = "body">
-                <div className="Loginbox">
-                    <div className="titleWrap">
-                    JOIN    
-                    </div>
-
-                    <div className="contentWrap">
-                        <div className="inputTitle">이름</div>
-                        <div className="inputWrap">
-                            <input className="input"/>
-                        </div>
-
-
-                        <div style={{marginTop: "30px"}}className="inputTitle">아이디</div>
-                        <div className="inputWrap">
-                            <input 
-                                className="input"
-                                placeholder="김멋사@gmail.com"
-                            
-                                />
-                        </div>
-
-                        <div className="errorMessageWrap">
-                            올바른 이메일 형식의 아이디를 입력해주세요.
-                        </div>
-
-                        <div style={{marginTop: "30px"}}className="inputTitle">비밀번호</div>
-                        <div className="inputWrap">
-                            <input className="input"
-                            placeholder="영문, 숫자, 특수문자 포함 8자 이상"
-                            
-                            />
-                        </div>
-
-                        <div className="errorMessageWrap">
-                            영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.
-                        </div>
-                    </div>
-
-                    <div className='bottomButtonWrap'>
-                        <button disabled={true}
-                        className="bottomButton">
-                            회원가입
-                        </button>
-                    </div>
-
+            <img className='titleWrap1' src='./JOIN.png'></img>
+            
+            <div className="contentWrap1">
+                <div className="inputTitle">이름</div>
+                <div className="inputWrap">
+                    <input 
+                    placeholder="김멋사"
+                    value={username}
+                    onChange={e=> setUsername(e.target.value)}
+                    className="input"/>
                 </div>
-            </body>
 
+                <div className="inputTitle">아이디</div>
+                    <div className="inputWrap">
+                        <input 
+                        placeholder="likelion"
+                        value={userid}
+                        onChange={e=> setUserid(e.target.value)}
+                        className="input"/>
+                    </div>
 
-            <div className = "imgbox">
-                <img className = "Loginpagebg"
-                src="./BG_login.png" alt="회원가입 배경">
-                </img>
-            </div>
+                <div className="inputTitle">비밀번호</div>
+                <div className="inputWrap">
+                    <input 
+                    type='password'
+                    value={password}
+                    onChange={e=> setPassword(e.target.value)}
+                    className="input"/>
+                </div>
+
+                <Link to = {'/Login'}>
+                    <img onClick={Join} src='./loginBtn.png'></img>
+                </Link>
+            </div>                
+
         </div>
-    );
+    )
 
 }
 
